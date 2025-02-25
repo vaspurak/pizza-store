@@ -5,11 +5,13 @@
 }
 .main {
   flex-grow: 1;
+  // background-color: coral;
 }
 
 .container {
   max-width: var(--container-body);
   margin: 0 auto;
+  // background-color: rgb(183, 255, 0);
 }
 
 .body {

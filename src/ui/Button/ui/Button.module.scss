@@ -1,0 +1,20 @@
+.clear {
+  background-color: var(--primary-color);
+  height: 50px;
+  &:active {
+    background-color: var(--icon-color);
+    color: #fff;
+  }
+}
+.normal {
+  background-color: var(--button-bg-color);
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    background-color: var(--inverted-button-bg-color);
+  }
+}
+
+.border {
+  border-radius: 6px;
+}
