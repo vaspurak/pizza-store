@@ -2,6 +2,8 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Импортируй из 'react-router-dom'
 import { MainLayout } from "./layouts/MainLayout"; // Используй именованный импорт или экспорт по умолчанию в зависимости от твоего файла
 import "./assets/styles/index.scss";
+import { ThemeProvider } from "./providers/ThemeProvider";
+import { Theme } from "./const/theme";
 
 const router = createBrowserRouter([
   {
@@ -10,16 +12,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div>HOME</div>,
+        element: <p>HOME</p>,
       },
       {
         path: "/pizzas",
-        element: <div>PIZZAS</div>,
+        element: <p>PIZZAS</p>,
       },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <ThemeProvider initialTheme={Theme.LIGHT}>
+    <RouterProvider router={router} />
+  </ThemeProvider>
 );

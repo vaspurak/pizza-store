@@ -7,10 +7,10 @@ const variantClasses = {
 };
 
 const Button = (props) => {
-  const { children, className, variant, active, border, onCklick } = props;
+  const { children, className, variant, active, border, onClick } = props;
 
   const variantClass = variantClasses[variant] || variantClasses.normal;
-  console.log(variantClass);
+  // console.log(variantClass);
 
   return (
     <button
@@ -23,7 +23,7 @@ const Button = (props) => {
           [cls["border"]]: border,
         }
       )}
-      onCklick={onCklick}
+      onClick={onClick}
     >
       {children}
     </button>

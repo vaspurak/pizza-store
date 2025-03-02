@@ -7,6 +7,9 @@ body {
   font: var(--font-s);
   color: var(--primary-color);
 }
+p {
+  color: var(--primary-color);
+}
 
 .app {
   background-color: var(--bg-color);

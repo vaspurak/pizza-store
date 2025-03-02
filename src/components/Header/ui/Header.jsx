@@ -7,6 +7,7 @@ import CartIcon from "@/assets/img/cart.svg?react";
 import { Icon } from "@/ui/Icon";
 import { Button } from "@/ui/Button";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "@/hooks/useTheme";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,6 +15,15 @@ const Header = () => {
   const onClick = () => {
     navigate("/");
   };
+
+  const { toggleTheme, theme } = useTheme();
+  console.log(theme);
+
+  const toggleThemeHandler = () => {
+    // console.log(theme);
+    toggleTheme();
+  };
+
   return (
     <header className={cls.header}>
       <div className={cls.container}>
@@ -25,10 +35,8 @@ const Header = () => {
           </div>
 
           <div className={cls.buttons}>
-            <Icon Svg={ToggleIcon} />
+            <Icon Svg={ToggleIcon} clickable onClick={toggleThemeHandler} />
 
-            {/* <ToggleIcon />
-            <CartIcon /> */}
             <Button border className={cls.button}>
               <Icon Svg={CartIcon} />
               <span>0 Р</span>
