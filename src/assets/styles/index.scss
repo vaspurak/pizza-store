@@ -52,3 +52,9 @@ p {
     transform: rotate(360deg);
   }
 }
+//Error
+.error {
+  text-align: center;
+  color: var(--primary-color);
+  font: var(--font-l);
+}

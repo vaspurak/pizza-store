@@ -12,6 +12,10 @@ export default defineConfig({
     port: 3000,
   },
 
+  define: {
+    _API_: JSON.stringify("http://localhost:8000"),
+  },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

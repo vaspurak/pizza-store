@@ -11,6 +11,9 @@ import { Suspense } from "react";
 import { routerNavigations } from "./const/router";
 import { PageLoader } from "./ui/PageLoader";
 
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +26,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <ThemeProvider initialTheme={Theme.LIGHT}>
-    <RouterProvider router={router} />
-  </ThemeProvider>
+  <Provider store={store}>
+    <ThemeProvider initialTheme={Theme.LIGHT}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  </Provider>
 );
