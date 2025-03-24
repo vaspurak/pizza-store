@@ -3,16 +3,16 @@ import cls from "./CardItem.module.scss";
 import { Button } from "@/ui/Button";
 const CardItem = (props) => {
   const {
-    id,
+    // id,
     img = "",
     title = "",
     product = "",
     ingredients = [],
     description = "",
+    price = 0,
   } = props;
 
   const ingredientsText = ingredients.join(". ");
-  console.log(ingredientsText);
 
   return (
     <article className={cls.card}>
@@ -29,7 +29,12 @@ const CardItem = (props) => {
           <Button border className={cls.button}>
             Choose
           </Button>
-          <span>From 0 dollars</span>
+
+          {product === productsName.OTHERS ? (
+            <span>{price} $</span>
+          ) : (
+            <span>From {price} $</span>
+          )}
         </footer>
       </div>
     </article>

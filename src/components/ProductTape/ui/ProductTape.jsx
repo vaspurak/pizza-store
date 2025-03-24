@@ -1,6 +1,7 @@
 import { CardItem } from "@/components/CardItem";
 import cls from "./ProductTape.module.scss";
 import { productsName } from "@/const/const";
+import { calcMinPricePizzas } from "@/utils/calcMinPrice";
 
 const ProductTape = (props) => {
   const { title, products = [], isLoading = false, error = undefined } = props;
@@ -19,13 +20,40 @@ const ProductTape = (props) => {
 
     switch (el.product) {
       case productsName.PIZZAS:
-        return <CardItem key={el.id} {...props} ingredients={el.ingredients} />;
+        const minPricePizzas = calcMinPricePizzas(el.sizes, el.doughs);
+
+        return (
+          <CardItem
+            key={el.id}
+            {...props}
+            ingredients={el.ingredients}
+            price={minPricePizzas}
+          />
+        );
 
       case productsName.ROLLS:
-        return <CardItem key={el.id} {...props} ingredients={el.ingredients} />;
+        const prices = el.pieces.map((el) => el.price);
+
+        const minPriceRolls = Math.min(...prices);
+
+        return (
+          <CardItem
+            key={el.id}
+            {...props}
+            ingredients={el.ingredients}
+            price={minPriceRolls}
+          />
+        );
 
       case productsName.OTHERS:
-        return <CardItem key={el.id} {...props} description={el.description} />;
+        return (
+          <CardItem
+            key={el.id}
+            {...props}
+            description={el.description}
+            price={el.price}
+          />
+        );
 
       default:
         null;
